@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Submit Your Resume – Evident</title>
+  <style>
+    #resume-form {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+  font-family: 'Inter', sans-serif;
+  color: #222;
+  overflow-x: hidden;
+}
+
+.about-hero {
+  background: linear-gradient(to right, #007ab6, #003f73);
+  color: white;
+  padding: 2.5rem 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.about-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+}
+
+.about-hero p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  opacity: 0.9;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+/* Form styles */
+#resume-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#resume-form input,
+#resume-form textarea {
+  padding: 0.8rem 1rem;
+  border: 1.5px solid #007ab6;
+  border-radius: 5px;
+  font-size: 1rem;
+  resize: vertical;
+  font-family: 'Inter', sans-serif;
+}
+
+#resume-form input:focus,
+#resume-form textarea:focus {
+  outline: none;
+  border-color: #005f87;
+  box-shadow: 0 0 5px rgba(0, 122, 182, 0.5);
+}
+
+#resume-form button {
+  background-color: #007ab6;
+  color: white;
+  padding: 0.9rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#resume-form button:hover {
+  background-color: #005f87;
+}
+
+  .benefits {
+  max-width: 600px;
+  margin: 1.5rem auto 2rem;
+  padding: 0 1.5rem;
+}
+
+.benefits h2 {
+  color: #007ab6;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.benefits ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.benefits ul li {
+  margin-bottom: 0.8rem;
+}
+</style>
+<body>
+<section id="resume-form">
+
+  <section class="about-hero">
+    <h1>Submit Your CV for Future Opportunities</h1>
+    <p>At Evident, we're committed to connecting exceptional talent with top companies. By submitting your CV, you'll be added to our database, making it easier for us to consider you for future opportunities, both within our company and with our clients.</p>
+  </section>
+
+  <section class="benefits">
+    <h2>Benefits of Submitting Your Resume</h2>
+    <ul>
+      <li>Increase your visibility to top employers.</li>
+      <li>Get considered for job openings that match your skills and experience.</li>
+      <li>Stay connected with our recruitment team for future opportunities.</li>
+      
+    </ul>
+  </section>
+
+  <form action="mailto:support@evidentpvt.in" method="POST" enctype="text/plain">
+    <input type="text" name="name" placeholder="Full Name" required />
+    <input type="email" name="email" placeholder="Email Address" required />
+    <input type="tel" name="phone" placeholder="Phone Number" required />
+    <input type="text" name="location" placeholder="Current Location (City, Country)" required />
+    <input type="text" name="job_location" placeholder="Preferred Job Location (City, Country)" required />
+    <input type="text" name="job_title" placeholder="Job Title" required />
+    <input type="text" name="industry" placeholder="Industry" required />
+    <textarea name="skills" placeholder="Key Skills (e.g., Java, Sales, HR, etc.)" rows="3" required></textarea>
+    <input type="qualifications" placeholder="Qualifications" rows="3" required></textarea>
+    <textarea name="Linkedin_profile" placeholder="Linkedin Profile Link" rows="4" required></textarea>
+    <input type="text" name="CurrentCTC" placeholder="Current CTC" required />
+    <input type="text" name="ExpectedCTC" placeholder="Expected CTC" required />
+    <label for="resume" style="font-weight: 600;">Upload Your CV (PDF, DOC, or DOCX)</label>
+    <input type="file" name="resume" accept=".pdf, .doc, .docx" required style="padding: 0.5rem;" />
+    
+    <button type="submit">Submit Resume</button>
+
+   
+  </form>
+<section class="cta-section" style="background: linear-gradient(to right, #007ab6, #005f8c); color: white; padding: 3rem 2rem; text-align: center; border-radius: 8px; margin: 2rem 0;">
+  <h3 style="font-size: 2rem; margin-bottom: 1rem;">Elevate Your Business with Expert Recruitment Solutions</h3>
+  <p style="font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+    Take the first step in advancing your career .Submit your CV today! </p>
+  
+  </a>
+</section>
+
+</section>
+
+</body>
+</html>

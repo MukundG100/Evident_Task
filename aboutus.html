@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - Evident</title>
+  <link rel="shortcut-icon" href="fulllogo.png">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: #222;
+      background-color: #f4f8fb;
+      overflow-x: hidden;
+    }
+
+    .top-header {
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        position: fixed; /* Changed from relative to fixed */
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        transition: transform 0.3s ease;
+        }
+
+        .top-header.hide {
+        transform: translateY(-100%);
+        }
+
+        .logo-container {
+        display: flex;
+        align-items: center;
+        }
+
+        .logo-container img {
+        height: 30px;
+        margin-right: 0.5rem;
+        }
+
+        .company-name {
+        font-size: 2rem;
+        font-weight: 600;
+        color: #007ab6;
+        }
+
+        .nav-links {
+        display: flex;
+        gap: 1.5rem;
+        }
+
+        .nav-links a {
+        position: relative;
+        color: #007ab6;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.2rem;
+        }
+
+        .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background: #007ab6;
+        transition: 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+        width: 100%;
+        }
+    .about-hero {
+      background: linear-gradient(to right, #007ab6, #003f73);
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+      width: 100vw;
+    }
+
+    .about-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .about-hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: auto;
+      opacity: 0.9;
+    }
+    
+
+    .section {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    .section h2 {
+      color: #007ab6;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .section p, .section ul {
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+#core-values .value-box {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-left: 4px solid #007ab6;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.cta-banner a:hover {
+  background-color: #000;
+  color: #fff;
+  transition: 0.3s ease;
+}
+
+
+    /* Footer */
+footer {
+  margin-top: 10px;
+  padding: 10px;
+  background-color:#007ab6;
+
+  color: white;
+  padding: 3rem 0 1.5rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 1.5rem;
+  padding: 0 1rem;
+}
+
+.footer-column h3 {
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+  color: var(--text-light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--accent-color);
+}
+.copyright {
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="top-header">
+    <div class="logo-container">
+      <img src="evident logo.png" alt="Evident Logo" />
+      <span class="company-name">EVIDENT</span>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href=index.html>Home</a>
+      <a href="aboutus.html" class="active">About Us</a>
+      <a href="service.html">Services</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+  </div>
+
+  </header>
+
+  <section class="about-hero">
+    <h1>Our Story, Our Vision & Our Values</h1>
+    <p>From a bold idea to a global recruitment force — Evident exists to connect extraordinary talent with extraordinary companies.</p>
+  </section>
+
+  <section class="introduction" style="max-width: 800px; margin: 3rem auto; padding: 0 1rem; color: #222; font-family: 'Inter', sans-serif;">
+  <h2 style="color: #007ab6; font-size: 2.5rem; margin-bottom: 1rem;">Welcome to Evident</h2>
+  <p style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.2rem;">
+    At Evident, we’re passionate about connecting exceptional talent with forward-thinking businesses. Our journey began with a bold and ambitious vision: to transform the recruitment outsourcing industry by making it more agile, transparent, and aligned with modern business needs.
+  </p>
+  <p style="font-size: 1.1rem; line-height: 1.7;">
+    With a deep understanding of both talent and technology, we bring a fresh perspective to recruitment — one that prioritizes partnership, innovation, and measurable results. Whether you're a fast-growing startup or an established enterprise, we're here to ensure you have the right people to power your progress.
+  </p>
+</section>
+
+
+  <section class="section" id="our-journey" style="max-width: 900px; margin: 3rem auto; padding: 0 1rem; font-family: 'Inter', sans-serif;">
+  <h2 style="color: #007ab6; font-size: 2rem; margin-bottom: 1rem;">Our Journey</h2>
+  <p style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 1rem;">
+    <strong>Evident</strong> was founded on the core principles of <strong>innovation</strong>, <strong>excellence</strong>, and an unwavering commitment to <strong>client success</strong>. What began as a bold vision to redefine recruitment has evolved into a trusted global partner for organizations seeking scalable, strategic talent solutions.
+  </p>
+  <p style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 1rem;">
+    Over the years, we’ve grown into a world-class leader in recruitment outsourcing, supporting businesses across industries — including technology, healthcare, finance, and manufacturing.
+  </p>
+  <p style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 1rem;">
+    Our journey is defined by continuous growth, meaningful partnerships, and a shared passion for helping companies build high-performing teams.
+  </p>
+  <p style="font-size: 1.1rem; line-height: 1.7;">
+    As we look ahead, our mission remains clear: to stay at the forefront of recruitment innovation and deliver measurable impact for every client we serve.
+  </p>
+</section>
+
+  <section class="section">
+    <h2>Our Mission</h2>
+        <p>At Evident, our mission is simple yet powerful: <br>
+      <b>To empower businesses to thrive by delivering personalized recruitment solutions that connect exceptional talent, fuel growth, and build lasting success.</b>
+      <br>
+      We believe the right people make all the difference. That’s why we combine industry insight, cutting-edge technology, and a people-first approach to ensure our clients attract and retain top-tier talent. Every solution we offer is tailored, strategic, and designed to create real business impact — today and into the future.
+
+      </p>
+    </section>
+
+  <section class="section" id="core-values" style="max-width: 1000px; margin: 3rem auto; padding: 0 1rem; font-family: 'Inter', sans-serif;">
+  <h2 style="color: #007ab6; font-size: 2rem; margin-bottom: 2rem;">Our Core Values</h2>
+
+  <div class="value-box" style="margin-bottom: 2rem;">
+    <h3 style="color: #005f8c; font-size: 1.4rem;">Innovation</h3>
+    <p style="font-size: 1.05rem; line-height: 1.7;">
+      We embrace change and continuously improve our processes, technologies, and strategies to stay ahead of the curve. Innovation isn’t just a goal — it’s how we lead.
+    </p>
+  </div>
+
+  <div class="value-box" style="margin-bottom: 2rem;">
+    <h3 style="color: #005f8c; font-size: 1.4rem;">Excellence</h3>
+    <p style="font-size: 1.05rem; line-height: 1.7;">
+      We are dedicated to delivering outstanding results. By holding ourselves to the highest standards, we consistently exceed expectations and raise the bar for recruitment outsourcing.
+    </p>
+  </div>
+
+  <div class="value-box">
+    <h3 style="color: #005f8c; font-size: 1.4rem;">Customer Satisfaction</h3>
+    <p style="font-size: 1.05rem; line-height: 1.7;">
+      Our clients are at the heart of our business. We focus on building lasting partnerships by understanding their unique needs and delivering personalized, impactful solutions that drive success.
+    </p>
+  </div>
+</section>
+<section class="cta-banner" style="background: linear-gradient(to right, #007ab6, #005f8c); color: white; padding: 3rem 2rem; text-align: center; border-radius: 8px; margin: 3rem 0; font-family: 'Inter', sans-serif;">
+  <h2 style="font-size: 2rem; margin-bottom: 1rem;">Let’s Take Your Hiring to the Next Level</h2>
+  <p style="font-size: 1.1rem; max-width: 700px; margin: 0 auto 2rem;">
+    Learn more about our services and how we help your business thrive. Explore our tailored recruitment solutions today.
+  </p>
+  <a href="service.html" style="background-color: #fff; color: #007ab6; padding: 0.8rem 1.8rem; border-radius: 5px; font-weight: 600; text-decoration: none; font-size: 1rem; box-shadow: 0 4px 8px rgba(0,0,0,0.15); transition: 0.3s ease;">
+    Explore Our Solutions
+  </a>
+</section>
+
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("navLinks");
+      nav.classList.toggle("open");
+    }
+  </script>
+<!-- Chat Button -->
+<button id="chatBtn" onclick="openChat()">💬</button>
+<script>// Chat button placeholder
+  function openChat() {
+    alert("Chat feature coming soon!");
+  }
+</script>
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById("navLinks");
+    nav.classList.toggle("open");
+  }
+
+  let lastScrollY = window.scrollY;
+  const header = document.querySelector('.top-header');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY < lastScrollY) {
+      // Scrolling up
+      header.classList.remove('hide');
+    } else {
+      // Scrolling down
+      header.classList.add('hide');
+    }
+    lastScrollY = window.scrollY;
+  });
+</script>
+
+<script>
+    function toggleMenu() {
+      const nav = document.getElementById("navLinks");
+      nav.classList.toggle("open");
+    }
+  </script>
+
+<style>
+    #chatBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: white;
+  color: #007ab6;
+  border: 4px solid #007ab6;
+  padding: 12px 15px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    right: 1rem;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    border-radius: 8px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+.nav-links {
+  transition: all 0.3s ease;
+}
+</style>
+
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById("navLinks");
+    nav.classList.toggle("open");
+  }
+</script>
+
+  <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>Evident</h3>
+            <p>Infinity of Talent, Evident Results</p>
+          </div>
+          <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="aboutus.html" class="active">About Us</a></li>
+              <li><a href="service.html">Services</a></li>
+              <li><a href="#">Case Studies</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Solutions</h3>
+            <ul class="footer-links">
+              <li><a href="#">Recruitment Process Outsourcing</a></li>
+              <li><a href="#">Executive Search</a></li>
+              <li><a href="#">Talent Acquisition</a></li>
+              <li><a href="#">Workforce Planning</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Contact</h3>
+            <ul class="footer-links">
+              <li><a href="mail to:support@evidentpvt.in">support@evidentpvt.in</a></li>
+               <li><a href="mail to:evidentpvt.ltd@gmail.com">evidentpvt.ltd@gmail.com</a></li>
+             <li><a href="tel:+91 8580571237">8580571237</a></li>
+            
+            </ul>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025 Evident Recruitment Solutions. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+
+</body>
+</html>

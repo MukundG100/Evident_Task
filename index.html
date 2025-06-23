@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evident</title>
+  <link rel="shortcut-icon" href="fulllogo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: #000;
+      overflow-x: hidden;
+    }
+
+    .top-header {
+      background-color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      position: fixed; /* Changed from relative to fixed */
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: transform 0.3s ease;
+    }
+
+    .top-header.hide {
+      transform: translateY(-100%);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container img {
+      height: 30px;
+      margin-right: 0.5rem;
+    }
+
+    .company-name {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #007ab6;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      color: #007ab6;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #007ab6;
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #007ab6;
+    }
+
+    header.hero {
+      position: relative;
+      margin-top: 60px;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+    }
+
+    .video-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.video-wrapper video {
+  width: 100vw;
+  height: 100%;
+  padding: 0%;
+  object-fit: cover;
+  background-color: white; /* Optional: fill background space around video */
+}
+
+
+    .fade-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: white;
+      opacity: 0;
+      animation: fadeInOverlay 2s ease forwards;
+      animation-delay: 1s;
+      z-index: 1;
+    }
+
+    @keyframes fadeInOverlay {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .hero-content-section {
+      opacity: 0;
+      animation: fadeInContent 1.5s ease forwards;
+      animation-delay: 2.5s;
+      background: #fff;
+      padding: 3rem 1rem;
+    }
+
+    @keyframes fadeInContent {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .hero-content-two-column {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1000px;
+      margin: auto;
+      gap: 2rem;
+    }
+
+    .hero-left, .hero-right {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .hero-left h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #007ab6;
+    }
+
+    .hero-right p {
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    .cta-buttons {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .cta-buttons a {
+      padding: 0.75rem 1.5rem;
+      background: #007ab6;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .cta-buttons a:hover {
+      background: #000;
+    }
+
+    section {
+      padding: 3rem 1rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .mission {
+      background: #fff;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .mission-text, .mission-image {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .mission-image img {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .cta-banner {
+      background: #007ab6;
+      color: #fff;
+      padding: 3rem 1rem;
+    }
+
+    .cta-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .cta-image img {
+      width: 100%;
+      max-width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50px;
+      background: #fff;
+    }
+
+    .cta-content {
+      flex: 1;
+    }
+
+    .cta-content h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta-link {
+      display: inline-block;
+      background: #fff;
+      color: #007ab6;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 5px;
+      transition: 0.3s ease;
+    }
+
+    .cta-link:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    footer {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 0.4rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 1rem;
+        background: #fff;
+        padding: 1rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .hero-content-two-column,
+      .cta-container,
+      .mission {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-left h1 {
+        font-size: 2rem;
+      }
+
+      .hero-right p {
+        font-size: 1rem;
+      }
+
+      .cta-image img,
+      .mission-image img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    /* Scroll to Top Button */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 85px;
+  right: 22px;
+  background-color: #007ab6; /* blue background on hover */
+  color: white;
+  border: 4px solid #007ab6;
+  padding: 12px 19px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Chat Button */
+#chatBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: white;
+  color: #007ab6;
+  border: 4px solid #007ab6;
+  padding: 12px 15px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#scrollTopBtn:hover {
+  transition: ease-in 0.2s;
+  background-color: white;
+  color: #007ab6;/* text turns white */
+}
+
+#chatBtn:hover {
+    transition: ease-in 0.2s;
+  background-color: #007ab6; /* blue background on hover */
+  color: white; /* text turns white */
+}
+/* Footer */
+footer {
+  margin-top: 10px;
+  padding: 10px;
+  background-color:#007ab6;
+
+  color: white;
+  padding: 3rem 0 1.5rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 1.5rem;
+  padding: 0 1rem;
+}
+
+.footer-column h3 {
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+  color: var(--text-light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--accent-color);
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="top-header">
+    <div class="logo-container">
+      <img src="evident logo.png" alt="Evident Logo" />
+      <span class="company-name">EVIDENT</span>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="#" class="active">Home</a>
+      <a href="aboutus.html">About Us</a>
+      <a href="service.html">Services</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+  </div>
+
+  <header class="hero">
+    <div class="video-wrapper">
+      <video autoplay muted loop playsinline>
+        <source src="herovideo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </header>
+
+  <section class="hero-content-section">
+    <div class="hero-content-two-column">
+      <div class="hero-left">
+        <img src="EvidentCabin.png" alt="About Evident" style="width: 100%; border-radius: 10px;" />
+      </div>
+      <div class="hero-right">
+        <h1>Elevate Your Workforce with Evident's Expert Recruitment Solutions</h1>
+        <p>In a rapidly evolving business landscape, securing top talent is crucial for driving growth, innovation, and success. At Evident, we leverage our global expertise, cutting-edge technology, and extensive network to deliver tailored recruitment outsourcing solutions that empower organizations to thrive.</p>
+        <div class="cta-buttons">
+          <a href="service.html">Explore Our Solutions</a>
+          <a href="contact.html">Talk to an Expert</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="overview">
+    <h2>Who We Are</h2>
+    <p>Evident is a trusted and dependable partner for many top companies around the globe. We work closely with businesses to truly understand their goals, challenges, and what kind of people they need to grow and succeed. With a mix of smart thinking, deep industry knowledge, and hands-on experience, we design customized recruitment solutions that match each client's specific needs. We don’t believe in one-size-fits-all approaches—instead, we focus on what works best for each company. Our team is committed to delivering high-quality results, making hiring simpler, faster, and more effective. By combining strategy, experience, and dedication, we help businesses build strong teams and achieve lasting success.</p>
+  </section>
+
+  <section class="mission">
+    <div class="mission-text">
+      <h2>Our Mission</h2>
+      <p>We help businesses around the world grow and reach their full potential by offering smart and personalized hiring solutions. Our goal is to connect each company with the right people—talented individuals who can truly make a difference. Every business is unique, so we create recruitment strategies that fit their specific goals and needs. By doing this, we not only help them find the best talent, but also support their long-term success and overall growth. Through innovation, a personal touch, and a deep understanding of hiring, we aim to be a trusted partner in their journey forward.</p>
+    </div>
+    <div class="mission-image">
+      <img src="our mission.png" alt="Mission Illustration" />
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="cta-container">
+      <div class="cta-image">
+        <img src="fulllogo.png" alt="Recruitment Illustration" />
+      </div>
+      <div class="cta-content">
+        <h2>Discover how Evident's recruitment expertise can transform your business.</h2>
+        <p>Explore our solutions today and experience the difference of working with a global leader in recruitment outsourcing.</p>
+        <a href="resume.html" class="cta-link">Submit your CV</a>
+      </div>
+    </div>
+  </section>
+
+  
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>Evident</h3>
+            <p>Infinity of Talent, Evident Results</p>
+          </div>
+          <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="aboutus.html">About Us</a></li>
+              <li><a href="service.html">Services</a></li>
+              <li><a href="#">Case Studies</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Solutions</h3>
+            <ul class="footer-links">
+              <li><a href="#">Recruitment Process Outsourcing</a></li>
+              <li><a href="#">Executive Search</a></li>
+              <li><a href="#">Talent Acquisition</a></li>
+              <li><a href="#">Workforce Planning</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Contact</h3>
+            <ul class="footer-links">
+              <li><a href="mail to:support@evidentpvt.in">support@evidentpvt.in</a></li>
+              <li><a href="mail to:evidentpvt.ltd@gmail.com">evidentpvt.ltd@gmail.com</a></li>
+              <li><a href="tel:+91 8580571237">8580571237</a></li>
+            
+            </ul>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025 Evident Recruitment Solutions. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("navLinks");
+      nav.classList.toggle("open");
+    }
+  </script>
+  <!-- Scroll to Top Button -->
+<button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+
+<!-- Chat Button -->
+<button id="chatBtn" onclick="openChat()">💬</button>
+
+<script>
+  // Show scroll button when scrolled down
+  window.onscroll = function () {
+    document.getElementById("scrollTopBtn").style.display =
+      window.scrollY > 200 ? "block" : "none";
+  };
+
+  // Scroll to top function
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Chat button placeholder
+  function openChat() {
+    alert("Chat feature coming soon!");
+  }
+</script>
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById("navLinks");
+    nav.classList.toggle("open");
+  }
+
+  let lastScrollY = window.scrollY;
+  const header = document.querySelector('.top-header');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY < lastScrollY) {
+      // Scrolling up
+      header.classList.remove('hide');
+    } else {
+      // Scrolling down
+      header.classList.add('hide');
+    }
+    lastScrollY = window.scrollY;
+  });
+</script>
+
+</body>
+</html>
